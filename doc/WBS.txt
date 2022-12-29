@@ -1,0 +1,50 @@
+12:47
+BEGIN ------------------------
+
+Qusetion list:
+- RESTful api;
+- schedule message printing (console);
+- input: accept a ‘message content’ and ’delivery time‘;
+- return 202 if accepted (scheduled);
+- service should be recoverable;
+-> use springboot and libraries (as much as you can?);
+-> can use other lib if needed; 
+
+:-> documented code
+:-> clearly models
+:-> Unit tests
+
+
+
+Refresh knowledge:
+- schedule : cron? quartz? xxl-job? elastic-job? TBSchedule?(LOL)
+	-> springboot 2.0.2 include quartz lib
+	-> auto configuration for quartz in springboot is included after 2.4.x?
+- recoverable : mysql
+	-> Jpa with Hibernate
+	-> current existing database
+- springboot version : 2.7.7 or 3.0.1
+	-> SmartLifecycle? Calendar Format in Log?
+	-> try new 3.0.1 with Java 17
+
+refer:
+- https://docs.spring.io/spring-boot/docs/current/api/
+- http://www.quartz-scheduler.org/documentation/quartz-2.3.0/quick-start.html#configuration
+
+END ------------------------
+13:42
+
+
+
+14:37
+BEGIN ------------------------
+
+add packages
+load auto configuration
+working solution
+issue: quartz does not save successful;
+TODO: need to fill logs, code quality, docs, unit tests.......
+will finish later.
+
+END ------------------------
+15:44
