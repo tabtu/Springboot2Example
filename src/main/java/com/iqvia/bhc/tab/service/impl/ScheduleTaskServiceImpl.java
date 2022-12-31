@@ -18,13 +18,13 @@ import com.iqvia.bhc.tab.utils.Convertor;
 import com.iqvia.bhc.tab.utils.MD5Utils;
 
 /**
+ * Schedule Task Service Implement
  * @author TabTu
- *
  */
 @Service
-public class SchduleTaskServiceImpl implements ScheduleTaskService  {
+public class ScheduleTaskServiceImpl implements ScheduleTaskService  {
 
-	private static final Logger log = LoggerFactory.getLogger(SchduleTaskServiceImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(ScheduleTaskServiceImpl.class);
 	
 	@Autowired
 	private MessageContentRepo messageRepo;
@@ -37,19 +37,18 @@ public class SchduleTaskServiceImpl implements ScheduleTaskService  {
 		try {
 			String md5str = MD5Utils.MD5_64bit(message);
 			var existedMsg = messageRepo.findById(md5str);
-
+			// if message is not exist in database
 			if (existedMsg.isEmpty()) {
 				MessageContent newMsg = new MessageContent(md5str, message);
 				messageRepo.save(newMsg);
 //				existedMsg.ifPresent( arg -> {arg = newMsg;} );
 				existedMsg = Optional.ofNullable(newMsg);
 			}
-			
+			// convert the schedule sending date time
 			Calendar calendar = Convertor.StringToCalendar(schedule);
-			
-			String res = quartzServ.scheduleJobWithCalendar(PrintJob.class, calendar, message);
-//			System.out.println(res);
-			
+			// schedule a new job
+			String message_id = quartzServ.scheduleJobWithCalendar(PrintJob.class, calendar, message);
+			log.debug(schedule + " : " + message_id);
 			return true;
 		}
 		catch (Exception e) {

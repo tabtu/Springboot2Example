@@ -7,9 +7,7 @@ import jakarta.persistence.*;
 
 /**
  * Message Content Entity
- *
  * @author TabTu
- * 
  */
 
 @Entity (name = "MessageContent")

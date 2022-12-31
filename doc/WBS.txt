@@ -1,4 +1,4 @@
-12:47
+2022.12.29 12:47
 BEGIN ------------------------
 
 Qusetion list:
@@ -32,11 +32,11 @@ refer:
 - http://www.quartz-scheduler.org/documentation/quartz-2.3.0/quick-start.html#configuration
 
 END ------------------------
-13:42
+2022.12.29 13:42
 
 
 
-14:37
+2022.12.29 14:37
 BEGIN ------------------------
 
 add packages
@@ -47,4 +47,22 @@ TODO: need to fill logs, code quality, docs, unit tests.......
 will finish later.
 
 END ------------------------
-15:44
+2022.12.29 15:44
+
+
+
+
+
+2022 12.31 11:51
+BEGIN ------------------------
+
+fix: quartz set always init db, this cause the db has been refresh everytime, change to never.
+if do not generate quartz auto, need a sql creation script.
+- add a quartz init script
+- add unit test
+- add logs
+- remove unnecessary code
+- update README
+
+END ------------------------
+2022 12.31 14:44

@@ -23,13 +23,14 @@ import org.springframework.stereotype.Service;
 import com.iqvia.bhc.tab.service.QuartzService;
 
 /**
+ * Quartz Service Implement
  * @author TabTu
  */
 
 @Service
 public class QuartzServiceImpl implements QuartzService {
 
-	private static final Logger log = LoggerFactory.getLogger(SchduleTaskServiceImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(ScheduleTaskServiceImpl.class);
 	
 	private String iqviaQuartzGroup = "iqviaQuartzGroup";
 
@@ -38,6 +39,7 @@ public class QuartzServiceImpl implements QuartzService {
     
 	@Override
     public String scheduleJob(Class<? extends Job> jobBeanClass, String cron, String data) {
+		// random UUID for job name
 		String jobName = UUID.randomUUID().toString();
         JobDetail jobDetail = JobBuilder.newJob(jobBeanClass)
                 .withIdentity(jobName, iqviaQuartzGroup)
@@ -50,14 +52,15 @@ public class QuartzServiceImpl implements QuartzService {
         try {
         	iqviaClusterScheduler.scheduleJob(jobDetail, cronTrigger);
         } catch (SchedulerException e) {
-        	// TODO: log error
+        	log.error(e.getMessage());
         }
         return jobName;
     }
 
     @Override
     public String scheduleJobWithCalendar(Class<? extends Job> jobBeanClass, Calendar calendar, String data) {
-      String startCron = String.format("%d %d %d %d %d ? %d",
+    	// convert a calendar to cron format
+    	String startCron = String.format("%d %d %d %d %d ? %d",
     		  calendar.get(Calendar.SECOND), 
     		  calendar.get(Calendar.MINUTE),
     		  calendar.get(Calendar.HOUR_OF_DAY),

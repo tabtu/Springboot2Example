@@ -8,9 +8,8 @@ import org.quartz.JobExecutionContext;
 import com.iqvia.bhc.tab.utils.Convertor;
 
 /**
- * 
+ * Job to print the message on Console
  * @author TabTu
- *
  */
 public class PrintJob implements Job {
 

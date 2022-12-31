@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.iqvia.bhc.tab.db.entity.MessageContent;
 
 /**
+ * Message Content Repository
  * @author TabTu
  */
 

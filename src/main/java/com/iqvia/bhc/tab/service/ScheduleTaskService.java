@@ -5,8 +5,8 @@ import java.util.Optional;
 import com.iqvia.bhc.tab.db.entity.MessageContent;
 
 /**
+ * Schedule Task Service
  * @author TabTu
- *
  */
 public interface ScheduleTaskService {
 
@@ -19,6 +19,7 @@ public interface ScheduleTaskService {
 	boolean addScheduledMessage(String schedule, String message);
 	
 	/**
+	 * Find a message by message key from database
 	 * @param msgId
 	 * @return
 	 */
