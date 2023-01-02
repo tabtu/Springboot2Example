@@ -66,3 +66,23 @@ if do not generate quartz auto, need a sql creation script.
 
 END ------------------------
 2022 12.31 14:44
+
+
+
+
+2023 01.01 19:19
+BEGIN ------------------------
+
+change quartz config to manually
+- create config file on setting configuration and quartz bean
+- move quartz properties into a separated file
+- set database maxLifetime to 30s, default is 180s
+Warning: minimum maxLifetime is 30s, but current db setting is 20s
+when changing to customized quartz config, springboot-auto-quartz-config will be disable 
+automatically.
+update prefix to IQVIA_QRTZ_
+seperate message database and schedule database.
+
+END ------------------------
+2023 01.01 20:05
+
