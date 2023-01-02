@@ -1,8 +1,9 @@
 # IQVIA_CODETEST
 Back-end home challenge
-- Project is based on sprintboog2.7.7, maven packages with Quartz and Jpa. Use mysql database.
+- Project is based on sprintboog3.0.1, maven packages with Quartz and Jpa. Use mysql database.
 - Database table will be auto-generated.
-- change spring.quartz.jdbc.initialize-schema=always when first install with database, for Quartz only. or use /doc/Quartzinit.sql for initialization.
+- change spring.quartz.jdbc.initialize-schema=always when first install with database, for Quartz only. or use /doc/Quartzinit.sql for initialization. (for Tag autoconfig_5H)
+- Quartz tables should be import into database manually, script could be found at <a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/QuartzInit.sql">QuartzInit.sql</a>
 - Please use mvn command to run the springboot app.
 - end points are /putmessage and /postmessage
 - get method to /example to get the model schema
@@ -12,15 +13,18 @@ Back-end home challenge
 ## IDEAS
 - new message will be add into database.
 - existed message will not be saved duplicate.
-- Quartz tables will be started with 'QRTZ'.
+- Quartz tables will be started with 'IQVIA_QRTZ_'.
+- separate main database and quartz tables.
+- support distributed configuration.
 ****
 
 ## LINKS
 - requirement (<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/Requirements.html">/doc/Requirements.html</a>)
 - work break down and time log script (<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/WBS.txt">/doc/WBS.txt</a>)
-- Quartz initialization script(<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/Quartzinit.sql">/doc/WBS.txt</a>)
+- Quartz initialization script(<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/QuartzInit.sql">/doc/QuartzInit.sql</a>)
 
 ****
+
 
 ## Requirements
 
