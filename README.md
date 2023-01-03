@@ -21,7 +21,7 @@ Back-end home challenge
 ## LINKS
 - requirement (<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/Requirements.html">/doc/Requirements.html</a>)
 - work break down and time log script (<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/WBS.txt">/doc/WBS.txt</a>)
-- Quartz initialization script(<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/QuartzInit.sql">/doc/QuartzInit.sql</a>)
+- Quartz initialization script(<a href="https://github.com/tabtu/IQVIA_CODETEST/blob/tab/doc/QuartzInit_SequelAce.sql">/doc/QuartzInit_SequelAce.sql</a> or <a href="https://github.com/tabtu/IQVIA_CODETEST/blob/tab/doc/QuartzInit_Navcat.sql">/doc/QuartzInit_Navcat.sql</a>). Exported from different database tool but same schema. 
 
 ****
 
