@@ -86,3 +86,8 @@ seperate message database and schedule database.
 END ------------------------
 2023 01.01 20:05
 
+
+TODO: 
+- date time format should be updated to new standard type "2022-12-31'T'12:12:12"
+- should consider input with time zone
+- should return failure when add a past time trigger
