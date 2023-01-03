@@ -6,8 +6,11 @@ Back-end home challenge
 - Quartz tables should be import into database manually, script could be found at <a href="https://github.com/tabtu/IQVIA_CODETEST/blob/master/doc/QuartzInit.sql">QuartzInit.sql</a>
 - Please use mvn command to run the springboot app.
 - end points are /putmessage and /postmessage
+- postmessage will accept modified time zone parameter
 - get method to /example to get the model schema
-- {"schedule_time": "2022-12-31 12:31", "message_content": "HELLO: IQVIA"}
+- {"schedule_time": "2022-12-31T12:31", "time_zone":"EST", "message_content": "HELLO: IQVIA"}
+- get available time zone list/timezonelist
+- total hous
 ****
 
 ## IDEAS

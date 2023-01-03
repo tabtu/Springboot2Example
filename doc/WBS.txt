@@ -87,7 +87,22 @@ END ------------------------
 2023 01.01 20:05
 
 
+
 TODO: 
 - date time format should be updated to new standard type "2022-12-31'T'12:12:12"
 - should consider input with time zone
 - should return failure when add a past time trigger
+
+
+
+2023 01.03 11:11
+BEGIN ------------------------
+
+- put will be in default time zone, post will accept timezone identify
+- update datetime format to standard, with T in the middle
+- change test database to local
+- fix unit test cases
+- change some parameters seq
+
+END ------------------------
+2023 01.03 11:49
