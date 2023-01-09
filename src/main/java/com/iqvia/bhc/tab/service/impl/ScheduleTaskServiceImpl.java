@@ -33,7 +33,7 @@ public class ScheduleTaskServiceImpl implements ScheduleTaskService  {
 	private QuartzService quartzServ;
 	
 	@Override
-	public boolean addScheduledMessage(String schedule, String message) {
+	public boolean addScheduledMessage(String message, String schedule) {
 		try {
 			String md5str = MD5Utils.MD5_64bit(message);
 			var existedMsg = messageRepo.findById(md5str);
@@ -46,6 +46,31 @@ public class ScheduleTaskServiceImpl implements ScheduleTaskService  {
 			}
 			// convert the schedule sending date time
 			Calendar calendar = Convertor.StringToCalendar(schedule);
+			// schedule a new job
+			String message_id = quartzServ.scheduleJobWithCalendar(PrintJob.class, calendar, message);
+			log.debug(schedule + " : " + message_id);
+			return true;
+		}
+		catch (Exception e) {
+			log.error(e.getMessage());
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean addScheduledMessage(String message, String schedule, String timeZone) {
+		try {
+			String md5str = MD5Utils.MD5_64bit(message);
+			var existedMsg = messageRepo.findById(md5str);
+			// if message is not exist in database
+			if (existedMsg.isEmpty()) {
+				MessageContent newMsg = new MessageContent(md5str, message);
+				messageRepo.save(newMsg);
+//				existedMsg.ifPresent( arg -> {arg = newMsg;} );
+				existedMsg = Optional.ofNullable(newMsg);
+			}
+			// convert the schedule sending date time
+			Calendar calendar = Convertor.StringToCalendar(schedule, timeZone);
 			// schedule a new job
 			String message_id = quartzServ.scheduleJobWithCalendar(PrintJob.class, calendar, message);
 			log.debug(schedule + " : " + message_id);

@@ -33,7 +33,7 @@ class PrinterControllerTest {
 		this.mockMvc.perform(get("/echo"))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(content().string(containsString("Hello IQVIA")));
+		.andExpect(content().string(containsString("Hello IQVIA.")));
 	}
 	
 	@Test

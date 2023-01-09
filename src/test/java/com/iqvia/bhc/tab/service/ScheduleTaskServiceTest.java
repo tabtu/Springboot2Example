@@ -17,11 +17,14 @@ class ScheduleTaskServiceTest {
 	@Test
 	void testAddScheduleTaskService() {
 		ScheduleMessage msg = new ScheduleMessage();
-		msg.schedule_time = "2022-12-31 12:31:00";
-		msg.message_content = "";
-
-		boolean taskResult = taskServ.addScheduledMessage(msg.schedule_time, msg.message_content);
-		assertEquals(true, taskResult);
-    	
+		msg.schedule_time = "2022-12-31T11:31:00";
+		msg.message_content = "send a test message";
+		msg.time_zone = "EST";
+		
+		boolean taskResult_withTimeZone = taskServ.addScheduledMessage(msg.message_content, msg.schedule_time, msg.time_zone);
+		assertEquals(true, taskResult_withTimeZone);
+		
+		boolean taskResult_defaultTimeZone = taskServ.addScheduledMessage(msg.message_content, msg.schedule_time);
+		assertEquals(true, taskResult_defaultTimeZone);
 	}
 }
